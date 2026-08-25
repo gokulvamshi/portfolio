@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  GOKUL VAMSHI — PORTFOLIO  ·  "NEON NOIR · CINEMATIC BRUTALISM"
+  ----------------------------------------------------------------------------
+  FILE      : index.html  (structure only — all styling in style.css, all
+              behaviour in script.js)
+  STACK     : Vanilla HTML5 / CSS3 / JS. Zero frameworks.
+  EXTERNALS : Google Fonts + Font Awesome (CDN) only.
+  ----------------------------------------------------------------------------
+  HOW TO EDIT THIS FILE
+  Every major region is wrapped in a banner comment reading "SECTION: <name>"
+  inside a row of equals signs, exactly like the ones you see further down.
+
+  Ctrl+F for "SECTION:" to jump between regions, or "EDIT:" to jump to
+  every single place that holds your personal content.
+
+  (Note: HTML comments cannot contain a closing-comment sequence, which is why
+   this block describes the banners in words instead of showing them inline.)
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <!-- ======================= HEAD: Core meta ======================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#030303" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- EDIT: Page title shown in the browser tab -->
+  <title>Gokul Vamshi — Web Developer &amp; Creative Technologist</title>
+
+  <!-- ======================= HEAD: SEO meta ======================= -->
+  <!-- EDIT: Tune these for search engines -->
+  <meta name="description" content="Gokul Vamshi — web developer, creative coder and multi-skilled technologist. Crafting digital experiences that leave a lasting impression." />
+  <meta name="keywords" content="Gokul Vamshi, web developer, frontend developer, portfolio, creative coder, JavaScript, React, student developer, UI UX" />
+  <meta name="author" content="Gokul Vamshi" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ================ HEAD: Open Graph / social cards ================ -->
+  <!-- EDIT: Replace the URL + image once the site is deployed -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gokul Vamshi — Web Developer &amp; Creative Technologist" />
+  <meta property="og:description" content="Crafting digital experiences that leave a lasting impression." />
+  <meta property="og:image" content="https://example.com/og-cover.jpg" />
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:site_name" content="Gokul Vamshi" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gokul Vamshi — Web Developer &amp; Creative Technologist" />
+  <meta name="twitter:description" content="Crafting digital experiences that leave a lasting impression." />
+  <meta name="twitter:image" content="https://example.com/og-cover.jpg" />
+
+  <!-- ======================= HEAD: Favicon ======================= -->
+  <!-- EDIT: Drop a favicon.ico / favicon.svg next to index.html and uncomment -->
+  <!-- <link rel="icon" href="favicon.svg" type="image/svg+xml" /> -->
+  <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png" /> -->
+  <!-- Inline SVG favicon fallback so the tab never shows a blank page icon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23030303'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' fill='%2300f0ff' text-anchor='middle'%3EGV%3C/text%3E%3C/svg%3E" />
+
+  <!-- ================= HEAD: Fonts (Google Fonts CDN) ================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- ================ HEAD: Icons (Font Awesome CDN) ================ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- ======================= HEAD: Stylesheet ======================= -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- ================================================================== -->
+<!-- SECTION: Preloader                                                 -->
+<!-- Full-screen intro: SVG "GV" monogram draws itself, a loading bar    -->
+<!-- and % counter fill, then the whole overlay clip-paths away.         -->
+<!-- ================================================================== -->
+<div class="preloader" id="preloader" role="status" aria-live="polite" aria-label="Loading portfolio">
+  <div class="preloader__inner">
+
+    <!-- Preloader: SVG monogram (stroke-dashoffset draw animation) -->
+    <svg class="preloader__mark" viewBox="0 0 240 120" aria-hidden="true">
+      <defs>
+        <linearGradient id="pl-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#00f0ff" />
+          <stop offset="55%"  stop-color="#ff2d75" />
+          <stop offset="100%" stop-color="#f5a623" />
+        </linearGradient>
+      </defs>
+      <!-- "G" glyph drawn as a path -->
+      <path class="preloader__path" d="M104 30 A34 34 0 1 0 104 90 L104 62 L78 62" />
+      <!-- "V" glyph drawn as a path -->
+      <path class="preloader__path" d="M132 30 L160 90 L188 30" />
+    </svg>
+
+    <!-- Preloader: name + status line -->
+    <div class="preloader__name">GOKUL&nbsp;VAMSHI</div>
+    <div class="preloader__status mono">
+      <span id="preloader-msg">INITIALISING RENDER PIPELINE</span>
+    </div>
+
+    <!-- Preloader: progress bar + percentage -->
+    <div class="preloader__bar" aria-hidden="true">
+      <span class="preloader__fill" id="preloader-fill"></span>
+    </div>
+    <div class="preloader__pct mono" id="preloader-pct">000<span>%</span></div>
+  </div>
+</div>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Global atmosphere layers                                  -->
+<!-- Fixed, pointer-events:none decorative layers that sit behind every  -->
+<!-- section: aurora mesh, tech grid, fog bands, film grain, vignette.   -->
+<!-- ================================================================== -->
+<div class="atmosphere" aria-hidden="true">
+  <div class="atmosphere__aurora"></div>   <!-- drifting radial+conic colour mesh -->
+  <div class="atmosphere__grid"></div>     <!-- ultra-low-opacity engineering grid -->
+  <div class="atmosphere__fog fog-a"></div><!-- slow horizontal fog band 1 -->
+  <div class="atmosphere__fog fog-b"></div><!-- slow horizontal fog band 2 -->
+  <div class="atmosphere__grain"></div>    <!-- base64 film-grain noise tile -->
+  <div class="atmosphere__vignette"></div> <!-- corner darkening, stage lighting -->
+</div>
+
+<!-- Global mouse-following spotlight ("the lamp") — moved by JS -->
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+<!-- Confetti canvas used by the Konami-code / logo easter eggs -->
+<canvas class="confetti-canvas" id="confetti-canvas" aria-hidden="true"></canvas>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Custom cursor (dot + lerped ring) — hidden on touch        -->
+<!-- ================================================================== -->
+<div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"><span class="cursor-ring__label mono"></span></div>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Scroll progress bar (top hairline, 0 → 100%)               -->
+<!-- ================================================================== -->
+<div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__bar" id="scroll-progress-bar"></span></div>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Navigation                                                -->
+<!-- Transparent over hero → frosted glass after scroll. Hides on scroll -->
+<!-- down, returns on scroll up. Active link tracked by IntersectionObs. -->
+<!-- ================================================================== -->
+<header class="nav" id="navbar">
+  <nav class="nav__inner" aria-label="Primary navigation">
+
+    <!-- Nav: Logo / monogram (click me 5 times… ) -->
+    <a href="#hero" class="logo" id="logo" aria-label="Gokul Vamshi — back to top">
+      <span class="logo__mark" aria-hidden="true">
+        <span class="logo__g">G</span><span class="logo__v">V</span>
+      </span>
+      <span class="logo__text">
+        <span class="logo__name">GOKUL VAMSHI</span>
+        <span class="logo__role mono">creative developer</span>
+      </span>
+    </a>
+
+    <!-- Nav: Desktop links (animated gradient underline on hover/active) -->
+    <ul class="nav__links" id="nav-links">
+      <li><a href="#hero"         class="nav__link is-active" data-nav="hero"><span class="mono nav__idx">01</span>Home</a></li>
+      <li><a href="#about"        class="nav__link" data-nav="about"><span class="mono nav__idx">02</span>About</a></li>
+      <li><a href="#skills"       class="nav__link" data-nav="skills"><span class="mono nav__idx">03</span>Skills</a></li>
+      <li><a href="#projects"     class="nav__link" data-nav="projects"><span class="mono nav__idx">04</span>Projects</a></li>
+      <li><a href="#achievements" class="nav__link" data-nav="achievements"><span class="mono nav__idx">05</span>Achievements</a></li>
+      <li><a href="#contact"      class="nav__link" data-nav="contact"><span class="mono nav__idx">06</span>Contact</a></li>
+    </ul>
+
+    <!-- Nav: Right-side utilities -->
+    <div class="nav__utils">
+      <!-- Accessibility: "reduce glow" toggle (persisted in localStorage) -->
+      <button class="glow-toggle" id="glow-toggle" type="button" aria-pressed="false" aria-label="Toggle reduced glow mode" data-cursor="Glow">
+        <i class="fa-regular fa-lightbulb" aria-hidden="true"></i>
+        <span class="glow-toggle__txt mono">GLOW</span>
+      </button>
+
+      <!-- Nav: Hamburger → X (mobile only) -->
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Nav: Full-screen mobile overlay menu (slides in from the right) -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu__glow" aria-hidden="true"></div>
+  <ul class="mobile-menu__list">
+    <li style="--i:0"><a href="#hero"         class="mobile-menu__link"><span class="mono">01</span> Home</a></li>
+    <li style="--i:1"><a href="#about"        class="mobile-menu__link"><span class="mono">02</span> About</a></li>
+    <li style="--i:2"><a href="#skills"       class="mobile-menu__link"><span class="mono">03</span> Skills</a></li>
+    <li style="--i:3"><a href="#projects"     class="mobile-menu__link"><span class="mono">04</span> Projects</a></li>
+    <li style="--i:4"><a href="#achievements" class="mobile-menu__link"><span class="mono">05</span> Achievements</a></li>
+    <li style="--i:5"><a href="#experience"   class="mobile-menu__link"><span class="mono">06</span> Experience</a></li>
+    <li style="--i:6"><a href="#contact"      class="mobile-menu__link"><span class="mono">07</span> Contact</a></li>
+  </ul>
+  <!-- Mobile menu: socials -->
+  <div class="mobile-menu__socials">
+    <a href="https://linkedin.com/in/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://github.com/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    <a href="https://codeforces.com/profile/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="Codeforces"><i class="fa-solid fa-code"></i></a>
+    <a href="https://leetcode.com/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fa-solid fa-terminal"></i></a>
+  </div>
+</div>
+
+
+<main id="main">
+
+<!-- ================================================================== -->
+<!-- SECTION: Hero                                                      -->
+<!-- Massive gradient name + glitch, typing rotator, intro line, CTAs,   -->
+<!-- socials, floating 3D geometry, parallax orbs, scroll indicator.     -->
+<!-- ================================================================== -->
+<section class="hero" id="hero" data-section="hero">
+
+  <!-- Hero: parallax orb + blob layer (each moves at its own speed) -->
+  <div class="hero__layers" aria-hidden="true">
+    <span class="orb orb--cyan"    data-parallax="0.18"></span>
+    <span class="orb orb--magenta" data-parallax="0.30"></span>
+    <span class="orb orb--gold"    data-parallax="0.12"></span>
+    <span class="blob blob--1"     data-parallax="0.22"></span>
+    <span class="blob blob--2"     data-parallax="0.34"></span>
+  </div>
+
+  <!-- Hero: floating CSS-only 3D geometry (cube, pyramid, ring, wireframe) -->
+  <div class="geo-field" aria-hidden="true">
+    <!-- 3D cube -->
+    <div class="geo geo--cube" data-parallax="0.40" style="--x:8%;  --y:22%; --s:.9;">
+      <span class="face f-front"></span><span class="face f-back"></span>
+      <span class="face f-right"></span><span class="face f-left"></span>
+      <span class="face f-top"></span><span class="face f-bottom"></span>
+    </div>
+    <!-- 3D pyramid -->
+    <div class="geo geo--pyramid" data-parallax="0.26" style="--x:86%; --y:30%; --s:1.1;">
+      <span class="tri t1"></span><span class="tri t2"></span>
+      <span class="tri t3"></span><span class="tri t4"></span>
+    </div>
+    <!-- Torus-like nested rings -->
+    <div class="geo geo--rings" data-parallax="0.16" style="--x:78%; --y:74%; --s:1;">
+      <span></span><span></span><span></span>
+    </div>
+    <!-- Wireframe icosahedron-ish shell (stacked rotated squares) -->
+    <div class="geo geo--shell" data-parallax="0.34" style="--x:58%; --y:16%; --s:.8;">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="hero__inner container">
+
+    <!-- Hero: status / availability chip + live clock -->
+    <div class="hero__chip reveal" data-reveal="fade-up">
+      <span class="dot-pulse" aria-hidden="true"></span>
+      <span class="mono">AVAILABLE FOR INTERNSHIPS &amp; FREELANCE</span>
+      <span class="hero__clock mono" id="hero-clock" aria-label="Local time">--:--:--</span>
+    </div>
+
+    <!-- Hero: eyebrow -->
+    <p class="hero__eyebrow mono reveal" data-reveal="fade-up" data-delay="60">
+      <span class="hero__eyebrow-line" aria-hidden="true"></span>
+      PORTFOLIO / <span class="hero__year">2026</span> — INDIA
+    </p>
+
+    <!-- Hero: Name (massive, animated gradient, periodic glitch) -->
+    <h1 class="hero__name" id="hero-name">
+      <!-- data-text drives the ::before/::after glitch channel layers -->
+      <span class="hero__name-line glitch" data-text="GOKUL">
+        <span class="glitch__base">GOKUL</span>
+      </span>
+      <span class="hero__name-line glitch hero__name-line--2" data-text="VAMSHI">
+        <span class="glitch__base">VAMSHI</span>
+      </span>
+    </h1>
+
+    <!-- Hero: Typing rotator + one-line intro -->
+    <div class="hero__role reveal" data-reveal="fade-up" data-delay="120">
+      <span class="hero__role-prefix mono">&gt;_</span>
+      <span class="hero__typed" id="typed-text"></span><span class="hero__caret" aria-hidden="true"></span>
+    </div>
+
+    <p class="hero__intro reveal" data-reveal="fade-up" data-delay="180">
+      <!-- EDIT: Your one-line positioning statement -->
+      Crafting digital experiences that leave a lasting impression.
+    </p>
+
+    <!-- Hero: Call-to-action buttons (both are magnetic on desktop) -->
+    <div class="hero__cta reveal" data-reveal="fade-up" data-delay="240">
+      <a href="#projects" class="btn btn--primary magnetic" data-cursor="View">
+        <span class="btn__label">View My Work</span>
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a href="#contact" class="btn btn--ghost magnetic" data-cursor="Say hi">
+        <span class="btn__label">Get In Touch</span>
+        <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <!-- Hero: Social rail -->
+    <!-- EDIT: Update these four URLs to your real profiles -->
+    <ul class="social-rail reveal" data-reveal="fade-up" data-delay="300" aria-label="Social profiles">
+      <li><a href="https://linkedin.com/in/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" data-cursor="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+      <li><a href="https://github.com/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" data-cursor="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+      <li><a href="https://codeforces.com/profile/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="Codeforces profile" data-cursor="CF"><i class="fa-solid fa-code" aria-hidden="true"></i></a></li>
+      <li><a href="https://leetcode.com/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile" data-cursor="LeetCode"><i class="fa-solid fa-terminal" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+
+  <!-- Hero: bouncing scroll indicator -->
+  <a href="#about" class="scroll-hint" aria-label="Scroll to About section">
+    <span class="scroll-hint__txt mono">SCROLL</span>
+    <span class="scroll-hint__rail" aria-hidden="true"><span class="scroll-hint__bead"></span></span>
+  </a>
+
+  <!-- Hero: bottom marquee ticker (infinite horizontal scroll) -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <!-- EDIT: change these ticker words freely -->
+      <span>FRONTEND ENGINEERING</span><span class="ticker__sep">✦</span>
+      <span>CREATIVE CODING</span><span class="ticker__sep">✦</span>
+      <span>UI / UX DESIGN</span><span class="ticker__sep">✦</span>
+      <span>PROBLEM SOLVING</span><span class="ticker__sep">✦</span>
+      <span>WEB PERFORMANCE</span><span class="ticker__sep">✦</span>
+      <span>FRONTEND ENGINEERING</span><span class="ticker__sep">✦</span>
+      <span>CREATIVE CODING</span><span class="ticker__sep">✦</span>
+      <span>UI / UX DESIGN</span><span class="ticker__sep">✦</span>
+      <span>PROBLEM SOLVING</span><span class="ticker__sep">✦</span>
+      <span>WEB PERFORMANCE</span><span class="ticker__sep">✦</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: About                                                     -->
+<!-- Split layout: bio text left, tilting photo frame right, stats row.  -->
+<!-- ================================================================== -->
+<section class="section about" id="about" data-section="about">
+  <span class="watermark" data-parallax="0.08" aria-hidden="true">ABOUT</span>
+
+  <div class="container">
+
+    <!-- About: section header -->
+    <header class="section__head">
+      <p class="section__kicker mono reveal" data-reveal="fade-right"><span></span>02 — WHO I AM</p>
+      <h2 class="section__title split-text reveal" data-reveal="fade-up">The human behind the pixels</h2>
+    </header>
+
+    <div class="about__grid">
+
+      <!-- About: bio column -->
+      <div class="about__text">
+        <!-- EDIT: Replace with your actual bio -->
+        <p class="about__lead reveal" data-reveal="fade-up">
+          I'm <strong>Gokul Vamshi</strong>, a passionate web developer and creative technologist
+          currently pursuing my studies in <em>[Your Field]</em>. I believe in building digital
+          experiences that are not just functional, but unforgettable.
+        </p>
+
+        <!-- About: editable bio blocks — duplicate a block to add more -->
+        <div class="about__blocks">
+          <!-- EDIT: Bio block 1 — The journey -->
+          <article class="about__block reveal" data-reveal="fade-up" data-delay="80">
+            <h3 class="mono"><i class="fa-solid fa-route" aria-hidden="true"></i> The journey</h3>
+            <p>Started with a single <code>&lt;div&gt;</code> and a lot of curiosity. Since then I've
+               shipped interfaces, broken them, and rebuilt them better — learning that the gap
+               between "it works" and "it's remarkable" is where the real craft lives.</p>
+          </article>
+
+          <!-- EDIT: Bio block 2 — The philosophy -->
+          <article class="about__block reveal" data-reveal="fade-up" data-delay="160">
+            <h3 class="mono"><i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> The philosophy</h3>
+            <p>Clean code and stunning design are the same discipline wearing different clothes.
+               I transform ideas into reality — one pixel, one function, one frame at a time.</p>
+          </article>
+
+          <!-- EDIT: Bio block 3 — Current focus -->
+          <article class="about__block reveal" data-reveal="fade-up" data-delay="240">
+            <h3 class="mono"><i class="fa-solid fa-crosshairs" aria-hidden="true"></i> Current focus</h3>
+            <p>Deepening my systems knowledge, exploring real-time 3D on the web, and sharpening
+               algorithmic thinking through competitive programming.</p>
+          </article>
+        </div>
+
+        <!-- About: resume download button -->
+        <!-- EDIT: point href to your real CV file, e.g. "assets/Gokul-Vamshi-CV.pdf" -->
+        <a href="#" download class="btn btn--primary magnetic about__cv" data-cursor="Download">
+          <span class="btn__label">Download Résumé</span>
+          <i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- About: portrait column (geometric frame + 3D tilt) -->
+      <figure class="about__figure reveal" data-reveal="scale-in">
+        <div class="portrait tilt" data-tilt data-tilt-max="10">
+          <div class="portrait__frame">
+            <!-- EDIT: Replace this placeholder block with a real <img src="..." alt="Gokul Vamshi"> -->
+            <div class="portrait__img" role="img" aria-label="Portrait placeholder for Gokul Vamshi">
+              <span class="portrait__initials">GV</span>
+              <span class="portrait__scan" aria-hidden="true"></span>
+            </div>
+            <!-- Decorative corner brackets -->
+            <span class="portrait__corner tl" aria-hidden="true"></span>
+            <span class="portrait__corner tr" aria-hidden="true"></span>
+            <span class="portrait__corner bl" aria-hidden="true"></span>
+            <span class="portrait__corner br" aria-hidden="true"></span>
+            <span class="tilt__glare" aria-hidden="true"></span>
+          </div>
+          <!-- Floating info chips around the portrait -->
+          <span class="portrait__chip chip-a mono">React · JS · CSS</span>
+          <span class="portrait__chip chip-b mono">Nagpur, IN</span>
+        </div>
+        <figcaption class="mono">FIG.01 — subject: G. Vamshi / status: building</figcaption>
+      </figure>
+    </div>
+
+    <!-- About: animated stat counters -->
+    <!-- EDIT: change data-count values + labels to your real numbers -->
+    <ul class="stats reveal" data-reveal="fade-up">
+      <li class="stat"><span class="stat__num" data-count="24"  data-suffix="+">0</span><span class="stat__label mono">Projects Built</span></li>
+      <li class="stat"><span class="stat__num" data-count="18"  data-suffix="+">0</span><span class="stat__label mono">Technologies</span></li>
+      <li class="stat"><span class="stat__num" data-count="1200" data-suffix="+">0</span><span class="stat__label mono">Hours Coding</span></li>
+      <li class="stat"><span class="stat__num" data-count="7"   data-suffix="+">0</span><span class="stat__label mono">Certifications</span></li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Skills                                                    -->
+<!-- Four tiers (Mastered / Proficient / Competent / Learning), filter   -->
+<!-- tabs, tilting cards with tier-coloured glow + level meters.         -->
+<!-- ================================================================== -->
+<section class="section skills" id="skills" data-section="skills">
+  <span class="watermark" data-parallax="0.08" aria-hidden="true">SKILLS</span>
+
+  <div class="container">
+    <header class="section__head">
+      <p class="section__kicker mono reveal" data-reveal="fade-right"><span></span>03 — THE TOOLKIT</p>
+      <h2 class="section__title split-text reveal" data-reveal="fade-up">Skills, ranked by mastery</h2>
+      <p class="section__sub reveal" data-reveal="fade-up" data-delay="80">
+        Four tiers, colour-coded by how deep the knowledge runs. Filter the grid below.
+      </p>
+    </header>
+
+    <!-- Skills: filter tabs -->
+    <div class="filters reveal" data-reveal="fade-up" role="tablist" aria-label="Filter skills by tier">
+      <span class="filters__pill" id="filters-pill" aria-hidden="true"></span>
+      <button class="filter is-active" data-filter="all"        role="tab" aria-selected="true">All</button>
+      <button class="filter" data-filter="mastered"   role="tab" aria-selected="false">🏆 Mastered</button>
+      <button class="filter" data-filter="proficient" role="tab" aria-selected="false">💪 Proficient</button>
+      <button class="filter" data-filter="competent"  role="tab" aria-selected="false">✅ Competent</button>
+      <button class="filter" data-filter="learning"   role="tab" aria-selected="false">📚 Learning</button>
+    </div>
+
+    <!--
+      Skills: the grid.
+      EDIT: Add your new skill here — copy one <li> and change:
+        data-tier   → mastered | proficient | competent | learning
+        data-level  → 0-100 (drives the meter width)
+        the <i> class (any Font Awesome icon) and the name.
+    -->
+    <ul class="skills__grid" id="skills-grid">
+
+      <!-- ---------- TIER: MASTERED (gold / amber glow) ---------- -->
+      <li class="skill-card tilt" data-tier="mastered" data-level="95" data-tilt data-cursor="95%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-html5" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">🏆 MASTERED</span>
+        </div>
+        <h3 class="skill-card__name">HTML5</h3>
+        <p class="skill-card__desc">Semantic structure, a11y, SEO-ready markup.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">95<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="mastered" data-level="93" data-tilt data-cursor="93%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">🏆 MASTERED</span>
+        </div>
+        <h3 class="skill-card__name">CSS3</h3>
+        <p class="skill-card__desc">Grid, 3D transforms, animation, design systems.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">93<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="mastered" data-level="90" data-tilt data-cursor="90%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-js" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">🏆 MASTERED</span>
+        </div>
+        <h3 class="skill-card__name">JavaScript</h3>
+        <p class="skill-card__desc">ES2023+, async patterns, DOM &amp; browser APIs.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">90<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <!-- ---------- TIER: PROFICIENT (cyan / teal glow) ---------- -->
+      <li class="skill-card tilt" data-tier="proficient" data-level="82" data-tilt data-cursor="82%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-react" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">💪 PROFICIENT</span>
+        </div>
+        <h3 class="skill-card__name">React</h3>
+        <p class="skill-card__desc">Hooks, context, composition, render performance.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">82<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="proficient" data-level="78" data-tilt data-cursor="78%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-node-js" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">💪 PROFICIENT</span>
+        </div>
+        <h3 class="skill-card__name">Node.js</h3>
+        <p class="skill-card__desc">REST APIs, auth flows, file &amp; stream handling.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">78<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="proficient" data-level="80" data-tilt data-cursor="80%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-python" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">💪 PROFICIENT</span>
+        </div>
+        <h3 class="skill-card__name">Python</h3>
+        <p class="skill-card__desc">Scripting, automation, data wrangling, DSA.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">80<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="proficient" data-level="85" data-tilt data-cursor="85%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-git-alt" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">💪 PROFICIENT</span>
+        </div>
+        <h3 class="skill-card__name">Git &amp; GitHub</h3>
+        <p class="skill-card__desc">Branching strategy, PR reviews, CI basics.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">85<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <!-- ---------- TIER: COMPETENT (cool blue glow) ---------- -->
+      <li class="skill-card tilt" data-tier="competent" data-level="65" data-tilt data-cursor="65%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-solid fa-t" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">✅ COMPETENT</span>
+        </div>
+        <h3 class="skill-card__name">TypeScript</h3>
+        <p class="skill-card__desc">Typed components, generics, safer refactors.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">65<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="competent" data-level="62" data-tilt data-cursor="62%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-solid fa-leaf" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">✅ COMPETENT</span>
+        </div>
+        <h3 class="skill-card__name">MongoDB</h3>
+        <p class="skill-card__desc">Schema design, aggregation, indexing basics.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">62<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="competent" data-level="68" data-tilt data-cursor="68%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">✅ COMPETENT</span>
+        </div>
+        <h3 class="skill-card__name">Express.js</h3>
+        <p class="skill-card__desc">Routing, middleware, JWT sessions, MVC layout.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">68<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="competent" data-level="60" data-tilt data-cursor="60%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-figma" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">✅ COMPETENT</span>
+        </div>
+        <h3 class="skill-card__name">Figma</h3>
+        <p class="skill-card__desc">Wireframes, components, dev-handoff specs.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">60<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <!-- ---------- TIER: LEARNING (magenta / pink glow) ---------- -->
+      <li class="skill-card tilt" data-tier="learning" data-level="40" data-tilt data-cursor="40%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-solid fa-cube" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">📚 LEARNING</span>
+        </div>
+        <h3 class="skill-card__name">Three.js</h3>
+        <p class="skill-card__desc">Scenes, materials, cameras, orbit interaction.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">40<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="learning" data-level="32" data-tilt data-cursor="32%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-solid fa-vector-square" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">📚 LEARNING</span>
+        </div>
+        <h3 class="skill-card__name">WebGL</h3>
+        <p class="skill-card__desc">Shaders, buffers, the render pipeline.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">32<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="learning" data-level="45" data-tilt data-cursor="45%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-brands fa-docker" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">📚 LEARNING</span>
+        </div>
+        <h3 class="skill-card__name">Docker</h3>
+        <p class="skill-card__desc">Images, volumes, compose for local stacks.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">45<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <li class="skill-card tilt" data-tier="learning" data-level="38" data-tilt data-cursor="38%">
+        <span class="skill-card__glow" aria-hidden="true"></span>
+        <div class="skill-card__top">
+          <span class="skill-card__icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span>
+          <span class="skill-card__badge mono">📚 LEARNING</span>
+        </div>
+        <h3 class="skill-card__name">Machine Learning</h3>
+        <p class="skill-card__desc">Regression, classification, model evaluation.</p>
+        <div class="meter" aria-hidden="true"><span class="meter__fill"></span></div>
+        <span class="skill-card__lvl mono">38<i>%</i></span>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </li>
+
+      <!-- EDIT: Add your new skill card right here (copy any <li> above) -->
+    </ul>
+  </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Projects                                                  -->
+<!-- Featured spotlight card + responsive grid of project cards.         -->
+<!-- ================================================================== -->
+<section class="section projects" id="projects" data-section="projects">
+  <span class="watermark" data-parallax="0.08" aria-hidden="true">PROJECTS</span>
+
+  <div class="container">
+    <header class="section__head">
+      <p class="section__kicker mono reveal" data-reveal="fade-right"><span></span>04 — SELECTED WORK</p>
+      <h2 class="section__title split-text reveal" data-reveal="fade-up">Things I've built</h2>
+      <p class="section__sub reveal" data-reveal="fade-up" data-delay="80">
+        A mix of shipped products, experiments and things I built purely because they were hard.
+      </p>
+    </header>
+
+    <!-- Projects: FEATURED spotlight card -->
+    <!-- EDIT: Add your flagship project here -->
+    <article class="featured tilt reveal" data-reveal="scale-in" data-tilt data-tilt-max="6">
+      <div class="featured__media">
+        <!-- EDIT: replace this gradient block with <img src="assets/project-1.jpg" alt="..."> -->
+        <div class="featured__thumb thumb-grad-1" role="img" aria-label="Featured project preview">
+          <span class="thumb__scan" aria-hidden="true"></span>
+          <span class="thumb__label mono">PREVIEW / 01</span>
+        </div>
+      </div>
+      <div class="featured__body">
+        <span class="featured__flag mono"><i class="fa-solid fa-star" aria-hidden="true"></i> FEATURED PROJECT</span>
+        <h3 class="featured__title">Nebula Dashboard</h3>
+        <p class="featured__desc">
+          A real-time analytics console with streaming charts, command-palette navigation and a
+          themable design-token system. Built to feel instant at any data volume.
+        </p>
+        <ul class="badges">
+          <li>React</li><li>TypeScript</li><li>Node.js</li><li>WebSockets</li><li>Chart rendering</li>
+        </ul>
+        <div class="card__actions">
+          <!-- EDIT: real demo + repo links -->
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--sm btn--primary" data-cursor="Open"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Live Demo</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--sm btn--ghost" data-cursor="Code"><i class="fa-brands fa-github" aria-hidden="true"></i> Source Code</a>
+        </div>
+      </div>
+      <span class="tilt__glare" aria-hidden="true"></span>
+    </article>
+
+    <!--
+      Projects: the grid.
+      EDIT: Add your real project here — copy one <article class="project-card"> and swap
+      the thumb-grad-* class, title, description, badges and the two links.
+    -->
+    <div class="projects__grid">
+
+      <!-- PROJECT 02 -->
+      <article class="project-card tilt reveal" data-reveal="fade-up" data-tilt data-cursor="Open">
+        <div class="project-card__media">
+          <div class="project-card__thumb thumb-grad-2" role="img" aria-label="Project preview">
+            <span class="thumb__scan" aria-hidden="true"></span><span class="thumb__label mono">02</span>
+          </div>
+          <div class="project-card__overlay"><span class="mono">VIEW CASE STUDY</span></div>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Aurora Commerce</h3>
+          <p class="project-card__desc">Full-stack storefront with cart persistence, Stripe-style checkout flow and an admin panel.</p>
+          <ul class="badges"><li>React</li><li>Express</li><li>MongoDB</li></ul>
+          <div class="card__actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Demo">Live Demo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Code">Source <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </article>
+
+      <!-- PROJECT 03 -->
+      <article class="project-card tilt reveal" data-reveal="fade-up" data-delay="80" data-tilt data-cursor="Open">
+        <div class="project-card__media">
+          <div class="project-card__thumb thumb-grad-3" role="img" aria-label="Project preview">
+            <span class="thumb__scan" aria-hidden="true"></span><span class="thumb__label mono">03</span>
+          </div>
+          <div class="project-card__overlay"><span class="mono">VIEW CASE STUDY</span></div>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Synth Playground</h3>
+          <p class="project-card__desc">Browser synthesiser driven by the Web Audio API with a live oscilloscope visualiser.</p>
+          <ul class="badges"><li>JavaScript</li><li>Web Audio</li><li>Canvas</li></ul>
+          <div class="card__actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Demo">Live Demo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Code">Source <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </article>
+
+      <!-- PROJECT 04 -->
+      <article class="project-card tilt reveal" data-reveal="fade-up" data-delay="160" data-tilt data-cursor="Open">
+        <div class="project-card__media">
+          <div class="project-card__thumb thumb-grad-4" role="img" aria-label="Project preview">
+            <span class="thumb__scan" aria-hidden="true"></span><span class="thumb__label mono">04</span>
+          </div>
+          <div class="project-card__overlay"><span class="mono">VIEW CASE STUDY</span></div>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">DevBoard CLI</h3>
+          <p class="project-card__desc">Terminal-first task board that syncs to a hosted API — because context switching is expensive.</p>
+          <ul class="badges"><li>Node.js</li><li>Python</li><li>SQLite</li></ul>
+          <div class="card__actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Demo">Live Demo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Code">Source <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </article>
+
+      <!-- PROJECT 05 -->
+      <article class="project-card tilt reveal" data-reveal="fade-up" data-tilt data-cursor="Open">
+        <div class="project-card__media">
+          <div class="project-card__thumb thumb-grad-5" role="img" aria-label="Project preview">
+            <span class="thumb__scan" aria-hidden="true"></span><span class="thumb__label mono">05</span>
+          </div>
+          <div class="project-card__overlay"><span class="mono">VIEW CASE STUDY</span></div>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">PixelPerfect</h3>
+          <p class="project-card__desc">A design-to-code diffing tool that overlays Figma frames on a live DOM and reports drift.</p>
+          <ul class="badges"><li>TypeScript</li><li>Figma API</li><li>Canvas</li></ul>
+          <div class="card__actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Demo">Live Demo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Code">Source <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </article>
+
+      <!-- PROJECT 06 -->
+      <article class="project-card tilt reveal" data-reveal="fade-up" data-delay="80" data-tilt data-cursor="Open">
+        <div class="project-card__media">
+          <div class="project-card__thumb thumb-grad-6" role="img" aria-label="Project preview">
+            <span class="thumb__scan" aria-hidden="true"></span><span class="thumb__label mono">06</span>
+          </div>
+          <div class="project-card__overlay"><span class="mono">VIEW CASE STUDY</span></div>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">Kinetic Type Lab</h3>
+          <p class="project-card__desc">An experiment collection in scroll-driven typography, variable fonts and CSS-only motion.</p>
+          <ul class="badges"><li>CSS3</li><li>JavaScript</li><li>Motion</li></ul>
+          <div class="card__actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Demo">Live Demo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Code">Source <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </article>
+
+      <!-- PROJECT 07 -->
+      <article class="project-card tilt reveal" data-reveal="fade-up" data-delay="160" data-tilt data-cursor="Open">
+        <div class="project-card__media">
+          <div class="project-card__thumb thumb-grad-7" role="img" aria-label="Project preview">
+            <span class="thumb__scan" aria-hidden="true"></span><span class="thumb__label mono">07</span>
+          </div>
+          <div class="project-card__overlay"><span class="mono">VIEW CASE STUDY</span></div>
+        </div>
+        <div class="project-card__body">
+          <h3 class="project-card__title">AlgoVisualizer</h3>
+          <p class="project-card__desc">Step-through visualiser for sorting, graph traversal and DP — built for my own revision.</p>
+          <ul class="badges"><li>JavaScript</li><li>SVG</li><li>DSA</li></ul>
+          <div class="card__actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Demo">Live Demo <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow" data-cursor="Code">Source <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </article>
+
+      <!-- EDIT: Add your real project here (copy any <article> above) -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Achievements                                              -->
+<!-- Alternating vertical timeline with glowing pulsing nodes.           -->
+<!-- ================================================================== -->
+<section class="section achievements" id="achievements" data-section="achievements">
+  <span class="watermark" data-parallax="0.08" aria-hidden="true">ACHIEVEMENTS</span>
+
+  <div class="container">
+    <header class="section__head">
+      <p class="section__kicker mono reveal" data-reveal="fade-right"><span></span>05 — MILESTONES</p>
+      <h2 class="section__title split-text reveal" data-reveal="fade-up">Proof of work</h2>
+    </header>
+
+    <!--
+      Achievements: timeline.
+      EDIT: Add a new achievement by copying one <li class="tl__item"> block.
+      Alternating sides are handled automatically by :nth-child on desktop.
+    -->
+    <ol class="tl">
+      <span class="tl__spine" aria-hidden="true"><span class="tl__spine-fill" id="tl-fill"></span></span>
+
+      <li class="tl__item reveal" data-reveal="fade-up">
+        <span class="tl__node" aria-hidden="true"></span>
+        <div class="tl__card tilt" data-tilt data-tilt-max="7">
+          <span class="tl__date mono">2024 · Q1</span>
+          <h3 class="tl__title"><i class="fa-solid fa-certificate" aria-hidden="true"></i> Full-Stack Web Development Certification</h3>
+          <p>Completed a 400-hour curriculum covering responsive design, APIs, databases and deployment.</p>
+          <span class="tl__meta mono">CREDENTIAL · #FSWD-2024</span>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </div>
+      </li>
+
+      <li class="tl__item reveal" data-reveal="fade-up">
+        <span class="tl__node" aria-hidden="true"></span>
+        <div class="tl__card tilt" data-tilt data-tilt-max="7">
+          <span class="tl__date mono">2024 · Q3</span>
+          <h3 class="tl__title"><i class="fa-solid fa-trophy" aria-hidden="true"></i> Hackathon Winner — 1st Place</h3>
+          <p>Led a team of four to build an accessibility-first campus navigation app in 36 hours.</p>
+          <span class="tl__meta mono">TEAM OF 4 · 36 HOURS</span>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </div>
+      </li>
+
+      <li class="tl__item reveal" data-reveal="fade-up">
+        <span class="tl__node" aria-hidden="true"></span>
+        <div class="tl__card tilt" data-tilt data-tilt-max="7">
+          <span class="tl__date mono">2024 · Q4</span>
+          <h3 class="tl__title"><i class="fa-solid fa-rocket" aria-hidden="true"></i> Shipped My First Full-Stack App</h3>
+          <p>Designed, built and deployed an end-to-end product with auth, payments and a real user base.</p>
+          <span class="tl__meta mono">MERN · DEPLOYED</span>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </div>
+      </li>
+
+      <li class="tl__item reveal" data-reveal="fade-up">
+        <span class="tl__node" aria-hidden="true"></span>
+        <div class="tl__card tilt" data-tilt data-tilt-max="7">
+          <span class="tl__date mono">2025 · Q2</span>
+          <h3 class="tl__title"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Codeforces Specialist Rating</h3>
+          <p>Crossed the 1400 rating mark through consistent contest participation and post-mortems.</p>
+          <span class="tl__meta mono">RATING 1400+ · SPECIALIST</span>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </div>
+      </li>
+
+      <li class="tl__item reveal" data-reveal="fade-up">
+        <span class="tl__node" aria-hidden="true"></span>
+        <div class="tl__card tilt" data-tilt data-tilt-max="7">
+          <span class="tl__date mono">2025 · Q3</span>
+          <h3 class="tl__title"><i class="fa-solid fa-code" aria-hidden="true"></i> 500+ LeetCode Problems Solved</h3>
+          <p>Maintained a 200-day streak across arrays, graphs, dynamic programming and system design.</p>
+          <span class="tl__meta mono">500+ SOLVED · 200-DAY STREAK</span>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </div>
+      </li>
+
+      <li class="tl__item reveal" data-reveal="fade-up">
+        <span class="tl__node" aria-hidden="true"></span>
+        <div class="tl__card tilt" data-tilt data-tilt-max="7">
+          <span class="tl__date mono">2026 · Q1</span>
+          <h3 class="tl__title"><i class="fa-brands fa-github" aria-hidden="true"></i> Open-Source Contribution Merged</h3>
+          <p>Fixed a rendering regression in a popular UI library and authored the regression test suite.</p>
+          <span class="tl__meta mono">PR MERGED · UPSTREAM</span>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </div>
+      </li>
+
+      <!-- EDIT: Add your new achievement here (copy any <li class="tl__item"> above) -->
+    </ol>
+  </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Experience / Education                                    -->
+<!-- Two columns of cards: education history + work / role history.      -->
+<!-- ================================================================== -->
+<section class="section experience" id="experience" data-section="experience">
+  <span class="watermark" data-parallax="0.08" aria-hidden="true">PATH</span>
+
+  <div class="container">
+    <header class="section__head">
+      <p class="section__kicker mono reveal" data-reveal="fade-right"><span></span>06 — EXPERIENCE &amp; EDUCATION</p>
+      <h2 class="section__title split-text reveal" data-reveal="fade-up">Where I've learned &amp; worked</h2>
+    </header>
+
+    <div class="exp__grid">
+
+      <!-- Experience: EDUCATION column -->
+      <div class="exp__col">
+        <h3 class="exp__col-title mono"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> EDUCATION</h3>
+
+        <!-- EDIT: Add your degree / school here -->
+        <article class="exp-card tilt reveal" data-reveal="fade-right" data-tilt data-tilt-max="6">
+          <span class="exp-card__years mono">2023 — 2027</span>
+          <h4 class="exp-card__role">B.Tech · Computer Science &amp; Engineering</h4>
+          <p class="exp-card__org">[Your University Name] — [City]</p>
+          <p class="exp-card__desc">Core coursework in data structures, operating systems, DBMS and computer networks. Active member of the coding club.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow">Institution <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </article>
+
+        <article class="exp-card tilt reveal" data-reveal="fade-right" data-delay="90" data-tilt data-tilt-max="6">
+          <span class="exp-card__years mono">2021 — 2023</span>
+          <h4 class="exp-card__role">Senior Secondary · PCM + Computer Science</h4>
+          <p class="exp-card__org">[Your School Name] — [City]</p>
+          <p class="exp-card__desc">Graduated with distinction. Built my first websites here and never stopped.</p>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </article>
+      </div>
+
+      <!-- Experience: WORK column -->
+      <div class="exp__col">
+        <h3 class="exp__col-title mono"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> EXPERIENCE</h3>
+
+        <!-- EDIT: Add your role / internship here -->
+        <article class="exp-card tilt reveal" data-reveal="fade-left" data-tilt data-tilt-max="6">
+          <span class="exp-card__years mono">2025 — PRESENT</span>
+          <h4 class="exp-card__role">Freelance Front-End Developer</h4>
+          <p class="exp-card__org">Self-employed · Remote</p>
+          <p class="exp-card__desc">Building marketing sites and dashboards for small businesses. Own the full pipeline: design, build, deploy, maintain.</p>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="link-arrow">Selected work <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </article>
+
+        <article class="exp-card tilt reveal" data-reveal="fade-left" data-delay="90" data-tilt data-tilt-max="6">
+          <span class="exp-card__years mono">2025 · SUMMER</span>
+          <h4 class="exp-card__role">Web Development Intern</h4>
+          <p class="exp-card__org">[Company Name] — [City]</p>
+          <p class="exp-card__desc">Shipped three production features, cut initial bundle size by 28% and wrote the team's component docs.</p>
+          <span class="tilt__glare" aria-hidden="true"></span>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Testimonials                                              -->
+<!-- Auto-scrolling marquee carousel + arrow / dot controls.             -->
+<!-- ================================================================== -->
+<section class="section testimonials" id="testimonials" data-section="testimonials">
+  <span class="watermark" data-parallax="0.08" aria-hidden="true">WORDS</span>
+
+  <div class="container">
+    <header class="section__head">
+      <p class="section__kicker mono reveal" data-reveal="fade-right"><span></span>07 — TESTIMONIALS</p>
+      <h2 class="section__title split-text reveal" data-reveal="fade-up">What people say</h2>
+    </header>
+  </div>
+
+  <!-- Testimonials: viewport (drag/arrow/dot controlled, auto-advances) -->
+  <div class="tst" id="testimonial-carousel">
+    <div class="tst__track" id="tst-track">
+
+      <!-- EDIT: Replace with a real testimonial -->
+      <figure class="tst__card tilt" data-tilt data-tilt-max="6">
+        <i class="fa-solid fa-quote-left tst__quote" aria-hidden="true"></i>
+        <blockquote><p>Gokul turned a vague brief into an interface our users actually compliment. He sweats details most developers never notice.</p></blockquote>
+        <figcaption class="tst__who">
+          <span class="tst__avatar" aria-hidden="true">AR</span>
+          <span><strong>Ananya Rao</strong><em class="mono">Product Lead · Fintech startup</em></span>
+        </figcaption>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </figure>
+
+      <figure class="tst__card tilt" data-tilt data-tilt-max="6">
+        <i class="fa-solid fa-quote-left tst__quote" aria-hidden="true"></i>
+        <blockquote><p>Fastest learner on the team. Gave him a legacy codebase on Monday; by Friday he'd refactored it and documented the whole thing.</p></blockquote>
+        <figcaption class="tst__who">
+          <span class="tst__avatar" aria-hidden="true">MK</span>
+          <span><strong>Manoj Kulkarni</strong><em class="mono">Engineering Manager · SaaS</em></span>
+        </figcaption>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </figure>
+
+      <figure class="tst__card tilt" data-tilt data-tilt-max="6">
+        <i class="fa-solid fa-quote-left tst__quote" aria-hidden="true"></i>
+        <blockquote><p>The animation work is genuinely agency-grade. It moves beautifully and still scores green on performance audits.</p></blockquote>
+        <figcaption class="tst__who">
+          <span class="tst__avatar" aria-hidden="true">SD</span>
+          <span><strong>Sara D'Souza</strong><em class="mono">Design Director · Studio</em></span>
+        </figcaption>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </figure>
+
+      <figure class="tst__card tilt" data-tilt data-tilt-max="6">
+        <i class="fa-solid fa-quote-left tst__quote" aria-hidden="true"></i>
+        <blockquote><p>He asks the right questions before writing a line of code. Rare in a student, rare in anyone.</p></blockquote>
+        <figcaption class="tst__who">
+          <span class="tst__avatar" aria-hidden="true">RV</span>
+          <span><strong>Rahul Verma</strong><em class="mono">Mentor · Open-source maintainer</em></span>
+        </figcaption>
+        <span class="tilt__glare" aria-hidden="true"></span>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Testimonials: controls -->
+  <div class="tst__controls container">
+    <button class="tst__arrow" id="tst-prev" type="button" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+    <div class="tst__dots" id="tst-dots" role="tablist" aria-label="Testimonial navigation"></div>
+    <button class="tst__arrow" id="tst-next" type="button" aria-label="Next testimonial"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+  </div>
+</section>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Contact                                                   -->
+<!-- Geometric divider, split layout: details left, validated form right -->
+<!-- ================================================================== -->
+<section class="section contact" id="contact" data-section="contact">
+
+  <!-- Contact: geometric wave divider at the top of the section -->
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="div-grad" x1="0" x2="1">
+          <stop offset="0%"   stop-color="#00f0ff" />
+          <stop offset="50%"  stop-color="#ff2d75" />
+          <stop offset="100%" stop-color="#f5a623" />
+        </linearGradient>
+      </defs>
+      <path d="M0,60 C240,10 420,90 720,45 C1020,0 1200,80 1440,30" fill="none" stroke="url(#div-grad)" stroke-width="1.5" opacity=".55" />
+      <path d="M0,75 C260,30 460,100 720,60 C980,20 1180,95 1440,50" fill="none" stroke="url(#div-grad)" stroke-width="1" opacity=".25" />
+    </svg>
+  </div>
+
+  <span class="watermark" data-parallax="0.08" aria-hidden="true">CONTACT</span>
+
+  <div class="container">
+    <div class="contact__grid">
+
+      <!-- Contact: left column — pitch + details -->
+      <div class="contact__intro">
+        <p class="section__kicker mono reveal" data-reveal="fade-right"><span></span>08 — GET IN TOUCH</p>
+        <h2 class="contact__title split-text reveal" data-reveal="fade-up">Let's Work Together</h2>
+        <p class="contact__msg reveal" data-reveal="fade-up" data-delay="80">
+          Got a project, an internship, or just an idea worth arguing about? My inbox is open —
+          I reply to everything.
+        </p>
+
+        <!-- Contact: detail rows -->
+        <ul class="contact__list reveal" data-reveal="fade-up" data-delay="140">
+          <!-- EDIT: your real email address (also update the mailto: below) -->
+          <li>
+            <span class="contact__ico"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span>
+            <span><em class="mono">EMAIL</em><a href="mailto:gokulamvamshi@example.com">gokulamvamshi@example.com</a></span>
+          </li>
+          <!-- EDIT: your location -->
+          <li>
+            <span class="contact__ico"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span>
+            <span><em class="mono">LOCATION</em><span>Nagpur, Maharashtra · India</span></span>
+          </li>
+          <li>
+            <span class="contact__ico"><i class="fa-regular fa-clock" aria-hidden="true"></i></span>
+            <span><em class="mono">RESPONSE TIME</em><span>Usually within 24 hours</span></span>
+          </li>
+        </ul>
+
+        <!-- Contact: socials -->
+        <ul class="social-rail social-rail--inline reveal" data-reveal="fade-up" data-delay="200" aria-label="Social profiles">
+          <li><a href="https://linkedin.com/in/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+          <li><a href="https://github.com/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+          <li><a href="https://codeforces.com/profile/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="Codeforces profile"><i class="fa-solid fa-code" aria-hidden="true"></i></a></li>
+          <li><a href="https://leetcode.com/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile"><i class="fa-solid fa-terminal" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+
+      <!--
+        Contact: right column — the form.
+        Submission is handled in script.js and currently opens the visitor's mail client
+        via a mailto: link. To use a real backend instead, read the commented
+        "FORMSPREE / NETLIFY" notes inside script.js (FEATURE: Contact Form Validation).
+      -->
+      <div class="contact__form-wrap reveal" data-reveal="fade-left">
+        <form class="form" id="contact-form" novalidate>
+          <p class="form__title mono">// SEND A MESSAGE</p>
+
+          <!-- Field: Name -->
+          <div class="field">
+            <input type="text" id="f-name" name="name" class="field__input" placeholder=" " autocomplete="name" required />
+            <label for="f-name" class="field__label">Your Name</label>
+            <span class="field__line" aria-hidden="true"></span>
+            <small class="field__error" id="err-name" role="alert"></small>
+          </div>
+
+          <!-- Field: Email -->
+          <div class="field">
+            <input type="email" id="f-email" name="email" class="field__input" placeholder=" " autocomplete="email" required />
+            <label for="f-email" class="field__label">Email Address</label>
+            <span class="field__line" aria-hidden="true"></span>
+            <small class="field__error" id="err-email" role="alert"></small>
+          </div>
+
+          <!-- Field: Subject -->
+          <div class="field">
+            <input type="text" id="f-subject" name="subject" class="field__input" placeholder=" " required />
+            <label for="f-subject" class="field__label">Subject</label>
+            <span class="field__line" aria-hidden="true"></span>
+            <small class="field__error" id="err-subject" role="alert"></small>
+          </div>
+
+          <!-- Field: Message -->
+          <div class="field">
+            <textarea id="f-message" name="message" class="field__input field__input--area" placeholder=" " rows="5" required></textarea>
+            <label for="f-message" class="field__label">Message</label>
+            <span class="field__line" aria-hidden="true"></span>
+            <small class="field__error" id="err-message" role="alert"></small>
+          </div>
+
+          <!-- Submit + status -->
+          <button type="submit" class="btn btn--primary btn--block magnetic" id="form-submit" data-cursor="Send">
+            <span class="btn__label">Send Message</span>
+            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            <span class="btn__spinner" aria-hidden="true"></span>
+          </button>
+          <p class="form__status mono" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Footer                                                    -->
+<!-- ================================================================== -->
+<footer class="footer">
+  <div class="footer__topline" aria-hidden="true"></div>
+
+  <div class="container footer__grid">
+
+    <!-- Footer: identity -->
+    <div class="footer__brand">
+      <a href="#hero" class="logo logo--footer" aria-label="Back to top">
+        <span class="logo__mark" aria-hidden="true"><span class="logo__g">G</span><span class="logo__v">V</span></span>
+        <span class="logo__text"><span class="logo__name">GOKUL VAMSHI</span></span>
+      </a>
+      <p class="footer__tag">Crafting digital experiences that leave a lasting impression.</p>
+    </div>
+
+    <!-- Footer: navigation -->
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <h3 class="mono">NAVIGATE</h3>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Footer: socials -->
+    <div class="footer__social">
+      <h3 class="mono">ELSEWHERE</h3>
+      <ul class="social-rail social-rail--inline">
+        <li><a href="https://linkedin.com/in/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+        <li><a href="https://github.com/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+        <li><a href="https://codeforces.com/profile/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="Codeforces profile"><i class="fa-solid fa-code" aria-hidden="true"></i></a></li>
+        <li><a href="https://leetcode.com/gokulamvamshi" target="_blank" rel="noopener noreferrer" aria-label="LeetCode profile"><i class="fa-solid fa-terminal" aria-hidden="true"></i></a></li>
+      </ul>
+      <p class="footer__hint mono">TIP: try the Konami code ↑↑↓↓←→←→BA</p>
+    </div>
+  </div>
+
+  <!-- Footer: legal bar with dynamic year -->
+  <div class="container footer__bar">
+    <p class="mono">© <span id="year">2026</span> Gokul Vamshi. All rights reserved.</p>
+    <p class="mono">Hand-coded — HTML · CSS · JS. No frameworks.</p>
+  </div>
+</footer>
+
+
+<!-- ================================================================== -->
+<!-- SECTION: Back-to-top button                                        -->
+<!-- ================================================================== -->
+<button class="to-top" id="to-top" type="button" aria-label="Back to top" data-cursor="Top">
+  <svg viewBox="0 0 44 44" aria-hidden="true"><circle class="to-top__track" cx="22" cy="22" r="20"></circle><circle class="to-top__prog" id="to-top-prog" cx="22" cy="22" r="20"></circle></svg>
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<!-- Easter-egg toast (shown by Konami code / 5× logo click) -->
+<div class="egg-toast" id="egg-toast" role="status" aria-live="polite"></div>
+
+<!-- ======================= Scripts ======================= -->
+<script src="script.js" defer></script>
+</body>
+</html>
